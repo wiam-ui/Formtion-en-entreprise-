@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+<h2>Liste des Inscriptions</h2>
+
+<a href="{% url 'inscription_add' %}" class="btn btn-success">
+Nouvelle inscription
+</a>
+
+</div>
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<table class="table table-bordered table-hover">
+
+<thead class="table-dark">
+<tr>
+<th>Employé</th>
+<th>Formation</th>
+<th>Session</th>
+<th>Progression</th>
+<th>Statut</th>
+<th>Certificat</th>
+<th>Actions</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for inscription in inscriptions %}
+
+<tr>
+
+<td>{{ inscription.employe.username }}</td>
+
+<td>{{ inscription.session.formation.titre }}</td>
+
+<td>{{ inscription.session.date_debut }}</td>
+
+<td>
+<span class="badge bg-info">
+{{ inscription.progression }} %
+</span>
+</td>
+
+<td>
+
+{% if inscription.statut == "complete" %}
+<span class="badge bg-success">Complété</span>
+{% else %}
+<span class="badge bg-warning text-dark">En cours</span>
+{% endif %}
+
+</td>
+
+<td>
+
+{% if inscription.statut == "complete" %}
+
+<a href="{% url 'generer_certificat' inscription.id %}" class="btn btn-outline-primary btn-sm">
+Télécharger
+</a>
+
+{% else %}
+
+<span class="text-muted">Non disponible</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+<a href="{% url 'inscription_edit' inscription.id %}" class="btn btn-primary btn-sm">
+Modifier
+</a>
+
+<a href="{% url 'inscription_delete' inscription.id %}" class="btn btn-danger btn-sm">
+Supprimer
+</a>
+
+</td>
+
+</tr>
+
+{% empty %}
+
+<tr>
+<td colspan="7" class="text-center">
+Aucune inscription trouvée
+</td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+{% endblock %}

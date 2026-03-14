@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+<div class="card shadow">
+
+<div class="card-header bg-danger text-white">
+<h4 class="mb-0">Supprimer Formation</h4>
+</div>
+
+<div class="card-body">
+
+<div class="alert alert-warning">
+<p class="mb-2">
+Voulez-vous vraiment supprimer cette formation ?
+</p>
+
+<strong>Titre :</strong> {{ object.titre }} <br>
+<strong>Durée :</strong> {{ object.duree }} heures
+</div>
+
+<form method="post">
+
+{% csrf_token %}
+
+<div class="d-flex justify-content-between">
+
+<button type="submit" class="btn btn-danger">
+Oui, supprimer
+</button>
+
+<a href="{% url 'formation_list' %}" class="btn btn-secondary">
+Annuler
+</a>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+<div class="card shadow">
+
+<div class="card-header bg-danger text-white">
+<h4 class="mb-0">Supprimer inscription</h4>
+</div>
+
+<div class="card-body">
+
+<div class="alert alert-warning">
+
+<p class="mb-2">
+Voulez-vous vraiment supprimer cette inscription ?
+</p>
+
+<strong>Employé :</strong> {{ object.employe.username }} <br>
+<strong>Formation :</strong> {{ object.session.formation.titre }} <br>
+<strong>Date session :</strong> {{ object.session.date_debut }}
+
+</div>
+
+<form method="post">
+
+{% csrf_token %}
+
+<div class="d-flex justify-content-between">
+
+<button type="submit" class="btn btn-danger">
+Supprimer
+</button>
+
+<a href="{% url 'inscription_list' %}" class="btn btn-secondary">
+Annuler
+</a>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

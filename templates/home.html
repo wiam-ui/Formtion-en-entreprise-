@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="text-center mb-5">
+
+<h1 class="fw-bold">Plateforme de Gestion de Formation</h1>
+
+<p class="text-muted">
+Gérez facilement les formations, les sessions et les employés de votre entreprise
+</p>
+
+<a href="{% url 'dashboard_rh' %}" class="btn btn-primary btn-lg mt-3">
+Accéder au Dashboard
+</a>
+
+</div>
+
+
+<div class="row g-4">
+
+<!-- Employés -->
+
+<div class="col-md-3">
+
+<div class="card shadow-sm h-100 text-center">
+
+<div class="card-body">
+
+<h5 class="card-title">Employés</h5>
+
+<p class="card-text">
+Gérer les employés de l'entreprise
+</p>
+
+<a href="{% url 'employe_list' %}" class="btn btn-outline-primary">
+Voir
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Formations -->
+
+<div class="col-md-3">
+
+<div class="card shadow-sm h-100 text-center">
+
+<div class="card-body">
+
+<h5 class="card-title">Formations</h5>
+
+<p class="card-text">
+Gérer les formations disponibles
+</p>
+
+<a href="{% url 'formation_list' %}" class="btn btn-outline-success">
+Voir
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Sessions -->
+
+<div class="col-md-3">
+
+<div class="card shadow-sm h-100 text-center">
+
+<div class="card-body">
+
+<h5 class="card-title">Sessions</h5>
+
+<p class="card-text">
+Organiser les sessions de formation
+</p>
+
+<a href="{% url 'session_list' %}" class="btn btn-outline-warning">
+Voir
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Inscriptions -->
+
+<div class="col-md-3">
+
+<div class="card shadow-sm h-100 text-center">
+
+<div class="card-body">
+
+<h5 class="card-title">Inscriptions</h5>
+
+<p class="card-text">
+Gérer les inscriptions des employés
+</p>
+
+<a href="{% url 'inscription_list' %}" class="btn btn-outline-danger">
+Voir
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+{% endblock %}
